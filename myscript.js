@@ -4,7 +4,7 @@ $(document).ready(function() {
   $('ul#icons li').mouseover(function() {
     $(this).width(175 + 'px');
     var imgclass = $(this).attr('class');
-    var changeimg = 'https://srv-file1.gofile.io/download/UykhsP/' + imgclass;
+    var changeimg = './images/' + imgclass;
     var wd;
     if (imgclass === 'fb') {
       wd = 138;
@@ -23,7 +23,7 @@ $(document).ready(function() {
   $('ul#icons li').mouseout(function() {
     $(this).width(50 + 'px');
     var imgclass = $(this).attr('class');
-    var changeimg = 'https://srv-file1.gofile.io/download/UykhsP/' + imgclass;
+    var changeimg = './images/' + imgclass;
     if (imgclass === 'yt') {
       wd = 44;
     } else {
@@ -43,12 +43,15 @@ $(document).ready(function() {
   var rels;
   $('#nav li').on('click', function() {
     rels = $(this).attr('rel');
-    if (rels != 'github') {
-      rels = 'https://jsbin.com/' + rels;
-      $('iframe').removeAttr("srcdoc");
-    } else {
+    if (rels == 'github') {
       rels = 'https://github.com/ahmedazhar05';
       $('iframe').attr("srcdoc", "<h1>Checkout my GitHub</h1>link : <a target='_blank' href='https://github.com/ahmedazhar05'>https://github.com/ahmedazhar05</a>");
+    }else if(rels == 'kehusek'){
+      rels = 'https://ahmedazhar05.github.io/cube-space';
+      $('iframe').removeAttr("srcdoc");
+    } else {
+      rels = 'https://jsbin.com/' + rels;
+      $('iframe').removeAttr("srcdoc");
     }
     $('iframe').attr('src', rels);
   });
@@ -151,7 +154,7 @@ $(document).ready(function() {
   //this function is used to change the background of the page
   var i = 0;
   $('button.changebg').on('click', function() {
-    $('body').css('background-image', "url('https://srv-file1.gofile.io/download/UykhsP/background" + (i + 1) + ".jpg')");
+    $('body').css('background-image', "url('./images/background" + (i + 1) + ".jpg')");
     i++;
     if (i >= 4) {
       i = 0;
